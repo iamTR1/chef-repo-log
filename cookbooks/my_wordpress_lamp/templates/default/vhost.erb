@@ -1,0 +1,15 @@
+<VirtualHost *:<%= @Port %>>
+  ServerAdmin      <%= @ServerAdmin %>
+  DocumentRoot     /var/www/<%= @Website %>/
+  ServerName       <%= @ServerName %>
+  ServerAlias      <%= @ServerAlias %>
+  DirectoryIndex   index.php
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+  <Directory /var/www/<%= @Website %>/>
+    Options       Indexes FollowSymlinks
+    AllowOverride All
+  </Directory>
+</VirtualHost>
